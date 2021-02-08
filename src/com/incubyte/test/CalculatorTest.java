@@ -10,50 +10,21 @@ import com.incubyte.dev.NegativeNumber;
 public class CalculatorTest {
 
 	@Test
-	public void test() {
+	public void test() throws NegativeNumber {
 		Calculator calculator = new Calculator();
-		int actual = calculator.Add("2,3");
+		int actual = calculator.AddV5("2,3");
 		assertEquals(5, actual);
-		actual = calculator.Add("2");
+		actual = calculator.AddV5("2");
 		assertEquals(2, actual);
-		actual = calculator.Add("");
+		actual = calculator.AddV5("");
 		assertEquals(0, actual);
 	}
-	@Test
-	public void testv2() {
+	@Test(expected = NegativeNumber.class)
+	public void testException() throws NegativeNumber {
 		Calculator calculator = new Calculator();
-		int actual = calculator.AddV2("2,3");
-		assertEquals(5, actual);
-		actual = calculator.AddV2("2");
-		assertEquals(2, actual);
-		actual = calculator.AddV2("");
-		assertEquals(0, actual);
-		actual = calculator.AddV2("1,2,3,4");
-		assertEquals(10, actual);
+		 calculator.AddV5("2,-3");
+         calculator.AddV5("//;\n-1;2");
 	}
-	@Test
-	public void testv3() {
-		Calculator calculator = new Calculator();
-		int actual = calculator.AddV3("2\n3");
-		assertEquals(5, actual);
-		actual = calculator.AddV3("2");
-		assertEquals(2, actual);
-		actual = calculator.AddV3("");
-		assertEquals(0, actual);
-		actual = calculator.AddV3("1,2,3\n4");
-		assertEquals(10, actual);
-	}
-	@Test
-	public void testv4(){
-		Calculator calculator = new Calculator();
-		int actual = calculator.AddV4("//;\n3;2");
-		assertEquals(5, actual);
-		actual = calculator.AddV4("2");
-		assertEquals(2, actual);
-		actual = calculator.AddV4("//:\n4");
-		assertEquals(4, actual);
-		actual = calculator.AddV4("1,2,3\n4");
-		assertEquals(10, actual);
-	}
-
+	
+	
 }
