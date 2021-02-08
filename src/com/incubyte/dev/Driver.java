@@ -6,7 +6,7 @@ public class Driver {
 		Calculator calculator = new Calculator();
         
 			try {
-				System.out.println(calculator.AddV5("//;\n-1;-2"));
+				System.out.println(calculator.AddV6("//;\n1;2;3;1045"));
 			} catch (NegativeNumber e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

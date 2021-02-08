@@ -11,7 +11,10 @@ public class Calculator {
     	 if(numbers.length()==0){
     		 return 0;
     	 }else if(numbers.indexOf(',')==-1 && numbers.indexOf('\n')==-1){
+    		 if(Integer.parseInt(numbers)<1000)
     		 return Integer.parseInt(numbers);
+    		 else
+    			 return 0;
     	 }else{
     		 for(int i=0;i<numbers.length();i++){
         		 //If the char is ',' then add the number before to result
@@ -19,6 +22,7 @@ public class Calculator {
         			 temp = Integer.parseInt(numbers.substring(pointer,i));
         			 if(temp < 0)
         				 throw new NegativeNumber("negatives not allowed - "+ temp);
+        			 if(temp<1000)
         			 result  = result + temp;
         			 pointer = i+1;
         		 }
@@ -28,6 +32,7 @@ public class Calculator {
         		 temp = Integer.parseInt(numbers.substring(pointer));
     			 if(temp < 0)
     				 throw new NegativeNumber("negatives not allowed - "+ temp);
+    			 if(temp<1000)
         		 result  = result + temp;
         	 }
         	 return result;
@@ -35,7 +40,7 @@ public class Calculator {
     	 
      }
      
-     public int AddV5(String numbers) throws NegativeNumber{
+     public int AddV6(String numbers) throws NegativeNumber{
     	 //if the input has no new delimiter then we use AddV3
     	 if(numbers.length()!=0 && numbers.charAt(0)=='/'){
     		 //custom delimiter
@@ -49,6 +54,7 @@ public class Calculator {
         			 temp = Integer.parseInt(numbers.substring(pointer,i));
         			 if(temp < 0)
         				 throw new NegativeNumber("negatives not allowed - "+ temp);
+        			 if(temp<1000)
         			 result  = result + temp;
         			 pointer = i+1;
         		 }
@@ -58,6 +64,7 @@ public class Calculator {
         		 temp = Integer.parseInt(numbers.substring(pointer));
     			 if(temp < 0)
     				 throw new NegativeNumber("negatives not allowed - "+ temp);
+    			 if(temp<1000)
         		 result  = result + temp;
         	 }
         	 return result;
