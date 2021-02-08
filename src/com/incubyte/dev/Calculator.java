@@ -93,29 +93,4 @@ public class Calculator {
      }
      
   
-      
-     public int AddV5(String numbers) throws NegativeNumber{
-    	 //if the input has no new delimiter then we use AddV3
-    	 if(numbers.length()!=0 && numbers.charAt(0)=='/'){
-    		 //custom delimiter
-    		 int result = 0;
-        	 int pointer = 4;
-        	 char delimiter = numbers.charAt(2);
-        	 for(int i=4;i<numbers.length();i++){
-        		 //If the char is ',' then add the number before to result
-        		 if(numbers.charAt(i)==delimiter){
-        			 if(Integer.parseInt(numbers.substring(pointer,i)) < 0)
-        			 result  = result + Integer.parseInt(numbers.substring(pointer,i));
-        			 pointer = i+1;
-        		 }
-        	 }
-        	 //Handling the final number 
-        	 if(pointer!=0)
-        		 result  = result + Integer.parseInt(numbers.substring(pointer));
-        	 return result;
-    	 }else{
-    		 return this.AddV3(numbers);
-    	 }
-    	 
-     }
 }
